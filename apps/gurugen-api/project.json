@@ -1,0 +1,26 @@
+{
+  "name": "gurugen-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/gurugen-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "gurugen-api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "gurugen-api:build:development"
+        },
+        "production": {
+          "buildTarget": "gurugen-api:build:production"
+        }
+      }
+    }
+  }
+}
